@@ -1,3 +1,10 @@
+# Backwards compatibility with Ruby < 3.2
+class File
+  class << self
+    alias_method :exists?, :exist?
+  end
+end
+
 require 'ripl'
 require 'tux/version'
 require 'tux/commands'
@@ -17,12 +24,5 @@ module Tux
     objs = []
     ObjectSpace.each_object(klass) {|e| objs.push(e) }
     objs
-  end
-end
-
-# Backwards compatibility with Ruby < 3.2
-class File
-  class << self
-    alias_method :exists?, :exist?
   end
 end
