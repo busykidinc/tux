@@ -19,3 +19,10 @@ module Tux
     objs
   end
 end
+
+# Backwards compatibility with Ruby < 3.2
+class File
+  class << self
+    alias_method :exists?, :exist?
+  end
+end
