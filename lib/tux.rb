@@ -1,5 +1,7 @@
 # Backwards compatibility with Ruby < 3.2
+puts '1111111111'
 class File
+  puts 'IN FILE'
   class << self
     alias_method :exists?, :exist?
   end
